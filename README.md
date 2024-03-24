@@ -11,6 +11,12 @@ This is currently implemented using SQLite `Savepoints`, which works because the
 
 # The test setup
 
+The test is implemented with Deno and can be run like this:
+
+```
+deno run -A --unstable-ffi app.ts
+```
+
 The file `mutators/mutators.ts` holds the named mutators provided by the application developer. It is shared between all clients and the sync server. The test app has only one named mutator called `createCategoryOrIncrementIfExists`.
 
 This test setup has 3 clients that behave in the following way:
