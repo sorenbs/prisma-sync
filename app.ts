@@ -8,6 +8,22 @@
  * This introduces delay, and requires the client to be online. We'll fix this in the next version.
  */
 
+try {
+    Deno.removeSync("server.db");
+    Deno.removeSync("server.db-shm");
+    Deno.removeSync("server.db-wal");
+    Deno.removeSync("client1.db");
+    Deno.removeSync("client1.db-shm");
+    Deno.removeSync("client1.db-wal");
+    Deno.removeSync("client2.db");
+    Deno.removeSync("client2.db-shm");
+    Deno.removeSync("client2.db-wal");
+    Deno.removeSync("client3.db");
+    Deno.removeSync("client3.db-shm");
+    Deno.removeSync("client3.db-wal");
+} catch {}
+
+
 const backend = new Worker(import.meta.resolve("./backendWorker.ts"), { type: "module" });
 const client1 = new Worker(import.meta.resolve("./clientWorker1.ts"), { type: "module" });
 const client2 = new Worker(import.meta.resolve("./clientWorker2.ts"), { type: "module" });

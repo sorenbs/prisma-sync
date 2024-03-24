@@ -3,10 +3,13 @@ import { Database } from "jsr:@db/sqlite@0.11";
 export type ClientMessage = {
     mutationName: string
     args: unknown
+    sequenceNumber: number
+    clientId: string
 }
 
 export type BackendMessage = {
     updates: string[]
+    latestSequenceNumbers: any
 }
 
 export class Mutators {
